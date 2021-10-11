@@ -34,7 +34,7 @@ public class TelaExcluirPrograma extends Menu{
     public void excluirPrograma(Biblioteca biblioteca, TipoPrograma tipoPrograma){
         super.run(true, false, false, false);
         this.nome = super.nomeCadastradoInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
-        this.programa = biblioteca.getPrograma(this.nome);
+        this.programa = biblioteca.getPrograma(this.nome, tipoPrograma);
         System.out.println(this.programa.toString());
         this.run(true, true, true, true);
     }
