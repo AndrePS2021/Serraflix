@@ -30,4 +30,4 @@ o certo é
 <br>
 <br>
 
-[<img src="https://github.com/nathan-guimaraes/Serraflix/UML.jpg">](https://github.com/nathan-guimaraes/Serraflix/UML.jpg)
+[<img src="https://github.com/nathan-guimaraes/Serraflix/blob/main/UML.jpg">](https://github.com/nathan-guimaraes/Serraflix/blob/main/UML.jpg)
