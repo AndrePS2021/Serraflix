@@ -1,10 +1,10 @@
 ## Colaboradores
 
-+ MARCOS MORAES
-+ NATHAN GUIMÃRAES
-+ DIEGO FARIA
-+ ANDRÉ PONTE
-+ BRUNO DE PAULA
++ [MARCOS MORAES](https://github.com/marcosmoraesnf)
++ [NATHAN GUIMÃRAES](https://github.com/nathan-guimaraes)
++ [DIEGO FARIA](https://github.com/diegofaria13)
++ [ANDRÉ PONTE](https://github.com/AndrePS2021)
++ [BRUNO DE PAULA](https://github.com/dhauron)
 
 <br>
 <br>
