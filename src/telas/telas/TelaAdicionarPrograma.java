@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import classes.Biblioteca;
@@ -16,9 +16,8 @@ import java.util.Arrays;
 import static mensagens.Mensagens.colorGoodMessage;
 import static mensagens.Mensagens.colorQueryMessage;
 
-public class TelaAdicionarPrograma extends Menu{
+public class TelaAdicionarPrograma extends Tela {
 
-    private Menu menuAnterior;
     private TipoPrograma tipoPrograma;
     private String nome;
     private Integer pontuacao;
@@ -26,60 +25,36 @@ public class TelaAdicionarPrograma extends Menu{
     private ArrayList<Integer> epTemporadas = new ArrayList<Integer>();
     private Integer duracao;
 
-    public TelaAdicionarPrograma(Menu menuAnterior){
+    public TelaAdicionarPrograma(Tela telaAnterior){
         super(
                 Mensagens.Cabecalhos.ADICIONAR_PROGRAMAS,
-                Mensagens.Opcoes.ESCOLHER_OPCOES,
+                "\n" + Mensagens.Opcoes.ESCOLHER_OPCOES,
                 new ArrayList<String>(Arrays.asList(
-                        Mensagens.Opcoes.SALVAR,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.SALVAR
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     public void adicionarPrograma(TipoPrograma tipoPrograma){
+        super.run(true, false, false, false);
         this.nome = super.lerStringInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
-        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontua??o: ", tipoPrograma);
+        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontuação: ", tipoPrograma);
         this.categoria = escolherCategoria();
     }
 
     public void adicionarFilme(Biblioteca biblioteca){
-        super.run(true, false, false, false);
         this.tipoPrograma = TipoPrograma.FILME;
         this.adicionarPrograma(TipoPrograma.FILME);
-        this.duracao = super.lerOpcao("Dura??o: ", 999999999);
-        this.run(true, true, true, true);
+        this.duracao = super.lerOpcao("Duração: ", 999999999);
+        this.run(false, true, true, true);
     }
 
     public void adicionarSerie(Biblioteca biblioteca){
-        super.run(true, false, false, false);
         this.tipoPrograma = TipoPrograma.SERIE;
         this.adicionarPrograma(TipoPrograma.SERIE);
         this.adicionarTemporada();
-        this.run(true, true, true, true);
-    }
-
-    public void adicionarTemporada(){
-        int count = 1;
-        while (true){
-            System.out.println(colorQueryMessage("\n" + Mensagens.Opcoes.ADICIONAR_TEMPORADA + " " + count++ + "?"));
-            Menu menu = new Menu("", Mensagens.Opcoes.ESCOLHER_OPCOES, null);
-            menu.setOpcoes(
-                new ArrayList<String>(Arrays.asList(
-                        Mensagens.Opcoes.SIM,
-                        Mensagens.Opcoes.NAO
-                )));
-            menu.run(false, true, true, true);
-
-            if (menu.opcaoSelecionada == 1) {
-                this.epTemporadas.add(super.lerOpcao("\n" + Mensagens.Opcoes.QTD_EPISODIOS));
-            }
-            else{
-                menu = null;
-                break;
-            }
-        }
+        this.run(false, true, true, true);
     }
 
     private Categoria escolherCategoria(){
@@ -89,16 +64,35 @@ public class TelaAdicionarPrograma extends Menu{
         return Categoria.values()[categoria-1];
     }
 
+    public void adicionarTemporada(){
+        int count = 1;
+        while (true){
+            System.out.println(colorQueryMessage("\n" + Mensagens.Opcoes.ADICIONAR_TEMPORADA + " " + count++ + "?"));
+            System.out.println(Mensagens.Opcoes.ESCOLHER_OPCOES);
+            System.out.println("1 - " + Mensagens.Opcoes.SIM);
+            System.out.println("2 - " + Mensagens.Opcoes.NAO);
+
+            if (super.lerOpcao("> ", 2) == 1) {
+                this.epTemporadas.add(super.lerOpcao("\n" + Mensagens.Opcoes.QTD_EPISODIOS, 999999999));
+            }
+            else{
+                break;
+            }
+        }
+    }
+
     private void salvarDados(Biblioteca biblioteca) throws InputException.BibliotecaException, ClassificacaoForaDoRangeException {
         switch (this.tipoPrograma){
             case SERIE:
                 Serie serie = new Serie(this.nome, this.pontuacao, this.categoria);
                 serie.adicionarTemporadas(this.epTemporadas);
+                System.out.println("\n" + serie.toString());
                 biblioteca.addPrograma(serie);
                 break;
 
             case FILME:
                 Filme filme = new Filme(this.nome, this.pontuacao, this.categoria, this.duracao);
+                System.out.println("\n" + filme.toString());
                 biblioteca.addPrograma(filme);
                 break;
         }
@@ -108,25 +102,20 @@ public class TelaAdicionarPrograma extends Menu{
     public void run(Boolean exibirCabecalho, Boolean exibirInstrucao, Boolean exibirOpcoes, Boolean lerOpcoes) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, lerOpcoes);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
             // Salvar
-            case 1:
+            case Mensagens.Opcoes.SALVAR:
 
                 try{
                     salvarDados(App.getBiblioteca());
-                    System.out.println(colorGoodMessage("\n" + Mensagens.Avisos.SALVO_SUCESSO));
+                    System.out.println(colorGoodMessage(Mensagens.Avisos.SALVO_SUCESSO));
                 }
                 catch (InputException.BibliotecaException | ClassificacaoForaDoRangeException e){
-                    System.out.println(e.getMessage());
                     System.out.println(Mensagens.Avisos.SALVO_FAIL);
+                    System.out.println(e.getMessage());
                 }
-                this.menuAnterior.run(true, true, true, true);
-                break;
-
-            // Voltar
-            case 2:
-                this.menuAnterior.run(true, true, true, true);
+                this.telaAnterior.run(true, true, true, true);
                 break;
         }
     }

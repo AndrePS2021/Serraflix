@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import mensagens.Mensagens;
@@ -6,47 +6,44 @@ import mensagens.Mensagens;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TelaAdicionar extends Menu{
+public class TelaAdicionar extends Tela {
 
     private TelaAdicionarPrograma telaAdicionarPrograma = new TelaAdicionarPrograma(this);
-    private Menu menuAnterior;
 
-    public TelaAdicionar(Menu menuAnterior){
+    public TelaAdicionar(Tela telaAnterior){
         super(
                 Mensagens.Cabecalhos.ADICIONAR_PROGRAMAS,
                 Mensagens.Opcoes.ESCOLHER_OPCOES,
                 new ArrayList<String>(Arrays.asList(
                         Mensagens.Opcoes.ADICIONAR_SERIE,
-                        Mensagens.Opcoes.ADICIONAR_FILME,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.ADICIONAR_FILME
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     @Override
     public void run(Boolean exibirCabecalho ,Boolean exibirInstrucao, Boolean exibirOpcoes, Boolean lerOpcoes) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, lerOpcoes);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
             // Adicionar Série
-            case 1:
+            case Mensagens.Opcoes.ADICIONAR_SERIE:
                 telaAdicionarPrograma.setCabecalho(Mensagens.Cabecalhos.ADICIONAR_SERIES);
                 telaAdicionarPrograma.adicionarSerie(App.getBiblioteca());
+//                telaAddEditPrograma.setCabecalho(Mensagens.Cabecalhos.ADICIONAR_SERIES);
+//                telaAddEditPrograma.adicionarSerie(App.getBiblioteca());
                 this.run(true,true, true, true);
                 break;
 
             // Adicionar Filme
-            case 2:
+            case Mensagens.Opcoes.ADICIONAR_FILME:
                 telaAdicionarPrograma.setCabecalho(Mensagens.Cabecalhos.ADICIONAR_FILMES);
                 telaAdicionarPrograma.adicionarFilme(App.getBiblioteca());
+//                telaAddEditPrograma.setCabecalho(Mensagens.Cabecalhos.ADICIONAR_FILMES);
+//                telaAddEditPrograma.adicionarFilme(App.getBiblioteca());
                 this.run(true,true, true, true);
-                break;
-
-            // Voltar
-            case 3:
-                this.menuAnterior.run(true, true, true, true);
                 break;
         }
     }

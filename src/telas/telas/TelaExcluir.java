@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import classes.Programa;
@@ -12,22 +12,20 @@ import java.util.List;
 
 import static mensagens.Mensagens.colorErrorMessage;
 
-public class TelaExcluir extends Menu{
+public class TelaExcluir extends Tela {
 
     private TelaExcluirPrograma telaExcluirPrograma = new TelaExcluirPrograma(this);
-    private Menu menuAnterior;
 
-    public TelaExcluir(Menu menuAnterior){
+    public TelaExcluir(Tela telaAnterior){
         super(
                 Mensagens.Cabecalhos.EXCLUIR_PROGRAMAS,
                 Mensagens.Opcoes.ESCOLHER_OPCOES,
                 new ArrayList<String>(Arrays.asList(
                         Mensagens.Opcoes.EXCLUIR_SERIE,
-                        Mensagens.Opcoes.EXCLUIR_FILME,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.EXCLUIR_FILME
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     private boolean listaVazia(List<Programa> programas){
@@ -42,10 +40,10 @@ public class TelaExcluir extends Menu{
     public void run(Boolean exibirCabecalho ,Boolean exibirInstrucao, Boolean exibirOpcoes, Boolean lerOpcoes) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, lerOpcoes);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
             // Excluir Série
-            case 1:
+            case Mensagens.Opcoes.EXCLUIR_SERIE:
 
                 if (listaVazia(App.getBiblioteca().getProgramas(TipoPrograma.SERIE))){
                     this.run(true,true, true, true);
@@ -58,7 +56,7 @@ public class TelaExcluir extends Menu{
                 break;
 
             // Excluir Filme
-            case 2:
+            case Mensagens.Opcoes.EXCLUIR_FILME:
                 if (listaVazia(App.getBiblioteca().getProgramas(TipoPrograma.FILME))){
                     this.run(true,true, true, true);
                 }
@@ -67,11 +65,6 @@ public class TelaExcluir extends Menu{
                 telaExcluirPrograma.setCabecalho(Mensagens.Cabecalhos.EXCLUIR_FILMES);
                 telaExcluirPrograma.excluirPrograma(App.getBiblioteca(), TipoPrograma.FILME);
                 this.run(true,true, true, true);
-                break;
-
-            // Voltar
-            case 3:
-                this.menuAnterior.run(true, true, true, true);
                 break;
         }
     }

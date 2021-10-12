@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import mensagens.Mensagens;
@@ -6,47 +6,40 @@ import mensagens.Mensagens;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TelaEditar extends Menu{
+public class TelaEditar extends Tela {
 
     private TelaEditarPrograma telaEditarPrograma = new TelaEditarPrograma(this);
-    private Menu menuAnterior;
 
-    public TelaEditar(Menu menuAnterior){
+    public TelaEditar(Tela telaAnterior){
         super(
                 Mensagens.Cabecalhos.EDITAR_PROGRAMAS,
                 Mensagens.Opcoes.ESCOLHER_OPCOES,
                 new ArrayList<String>(Arrays.asList(
                         Mensagens.Opcoes.EDITAR_SERIE,
-                        Mensagens.Opcoes.EDITAR_FILME,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.EDITAR_FILME
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     @Override
     public void run(Boolean exibirCabecalho ,Boolean exibirInstrucao, Boolean exibirOpcoes, Boolean lerOpcoes) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, lerOpcoes);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
             // Editar Série
-            case 1:
+            case Mensagens.Opcoes.EDITAR_SERIE:
                 telaEditarPrograma.setCabecalho(Mensagens.Cabecalhos.EDITAR_SERIES);
                 telaEditarPrograma.editarSerie(App.getBiblioteca());
                 this.run(true,true, true, true);
                 break;
 
             // Editar Filme
-            case 2:
+            case Mensagens.Opcoes.EDITAR_FILME:
                 telaEditarPrograma.setCabecalho(Mensagens.Cabecalhos.EDITAR_FILMES);
                 telaEditarPrograma.editarFilme(App.getBiblioteca());
                 this.run(true,true, true, true);
-                break;
-
-            // Voltar
-            case 3:
-                this.menuAnterior.run(true, true, true, true);
                 break;
         }
     }

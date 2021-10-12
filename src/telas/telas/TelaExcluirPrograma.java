@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import classes.Biblioteca;
@@ -12,40 +12,38 @@ import java.util.Arrays;
 
 import static mensagens.Mensagens.colorGoodMessage;
 
-public class TelaExcluirPrograma extends Menu{
+public class TelaExcluirPrograma extends Tela {
 
-    private Menu menuAnterior;
     private Programa programa;
     private String nome;
 
-    public TelaExcluirPrograma(Menu menuAnterior){
+    public TelaExcluirPrograma(Tela telaAnterior){
         super(
                 Mensagens.Cabecalhos.ADICIONAR_PROGRAMAS,
                 Mensagens.Opcoes.ESCOLHER_OPCOES,
                 new ArrayList<String>(Arrays.asList(
-                        Mensagens.Opcoes.SALVAR,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.EXCLUIR
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     public void excluirPrograma(Biblioteca biblioteca, TipoPrograma tipoPrograma){
         super.run(true, false, false, false);
         this.nome = super.nomeCadastradoInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
         this.programa = biblioteca.getPrograma(this.nome, tipoPrograma);
-        System.out.println(this.programa.toString());
-        this.run(true, true, true, true);
+        System.out.println("\n" + this.programa.toString());
+        this.run(false, true, true, true);
     }
 
     @Override
     public void run(Boolean exibirCabecalho, Boolean exibirInstrucao, Boolean exibirOpcoes, Boolean lerOpcoes) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, lerOpcoes);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
-            // Salvar
-            case 1:
+            // EXCLUIR
+            case Mensagens.Opcoes.EXCLUIR:
 
                 try{
                     App.getBiblioteca().excuirPrograma(this.programa);
@@ -55,12 +53,7 @@ public class TelaExcluirPrograma extends Menu{
                     System.out.println(e.getMessage());
                     System.out.println(Mensagens.Avisos.EXCLUIR_FAIL);
                 }
-                this.menuAnterior.run(true, true, true, true);
-                break;
-
-            // Voltar
-            case 2:
-                this.menuAnterior.run(true, true, true, true);
+                //this.telaAnterior.run(true, true, true, true);
                 break;
         }
     }

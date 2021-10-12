@@ -58,11 +58,15 @@ public class Serie extends Programa{
 			str = str.substring(0, str.length() - 0);
 		}
 		else{
-			str = Mensagens.MensagensSerie.TEMPORADAS_INEXISTENTES;
+			str = Mensagens.Avisos.TEMPORADAS_INEXISTENTES;
 		}
 		return str;
 	}
-	
+
+	public void limparTemporadas(){
+		this.temporadas.clear();
+	}
+
 	public String toString() {
 		
 		return

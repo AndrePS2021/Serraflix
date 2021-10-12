@@ -1,4 +1,4 @@
-package telas.menus;
+package telas.telas;
 
 import app.App;
 import mensagens.Mensagens;
@@ -9,10 +9,9 @@ import uteis.TipoPrograma;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TelaExibirCategoria extends Menu{
-    private Menu menuAnterior;
+public class TelaExibirCategoria extends Tela {
 
-    public TelaExibirCategoria(Menu menuAnterior){
+    public TelaExibirCategoria(Tela telaAnterior){
         super(
                 "\n" + Mensagens.Cabecalhos.EXIBIR_PROGRAMAS,
                 Mensagens.Opcoes.ESCOLHER_OPCOES,
@@ -20,11 +19,10 @@ public class TelaExibirCategoria extends Menu{
                         Categoria.COMEDIA.toString(),
                         Categoria.FANTASIA.toString(),
                         Categoria.TERROR.toString(),
-                        Mensagens.Opcoes.TODOS,
-                        Mensagens.Opcoes.VOLTAR
+                        Mensagens.Opcoes.TODOS
                 )));
 
-        this.menuAnterior = menuAnterior;
+        this.telaAnterior = telaAnterior;
     }
 
     @Override
@@ -35,35 +33,30 @@ public class TelaExibirCategoria extends Menu{
     public void run(Boolean exibirCabecalho , Boolean exibirInstrucao, Boolean exibirOpcoes, TipoPrograma tipoPrograma) {
         super.run(exibirCabecalho, exibirInstrucao, exibirOpcoes, true);
 
-        switch (super.opcaoSelecionada){
+        switch (this.menus.get(this.opcaoSelecionada-1)){
 
             // COMÉDIA
-            case 1:
+            case Mensagens.Categorias.COMEDIA:
                 Print.printProgramas(App.getBiblioteca().getProgramas(Categoria.COMEDIA, tipoPrograma), tipoPrograma);
                 this.run(true, true, true, tipoPrograma);
                 break;
 
             // FANTASIA
-            case 2:
+            case Mensagens.Categorias.FANTASIA:
                 Print.printProgramas(App.getBiblioteca().getProgramas(Categoria.FANTASIA, tipoPrograma), tipoPrograma);
                 this.run(true, true, true, tipoPrograma);
                 break;
 
             // TERROR
-            case 3:
+            case Mensagens.Categorias.TERROR:
                 Print.printProgramas(App.getBiblioteca().getProgramas(Categoria.TERROR, tipoPrograma), tipoPrograma);
                 this.run(true, true, true, tipoPrograma);
                 break;
 
             // TODOS
-            case 4:
+            case Mensagens.Opcoes.TODOS:
                 Print.printProgramas(App.getBiblioteca().getProgramas(tipoPrograma), tipoPrograma);
                 this.run(true, true, true, tipoPrograma);
-                break;
-
-            // Voltar
-            case 5:
-                this.menuAnterior.run(true, true, true, true);
                 break;
         }
     }
