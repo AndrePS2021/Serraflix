@@ -27,6 +27,6 @@ public class Filme extends Programa {
 	public String toString() {
 		return
 				super.toString() + "\n" +
-				"DuraÃ§Ã£o: " + this.formatTime() + "\n";
+				"Duração: " + this.formatTime() + "\n";
 	}
 }

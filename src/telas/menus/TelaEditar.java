@@ -30,7 +30,7 @@ public class TelaEditar extends Menu{
 
         switch (super.opcaoSelecionada){
 
-            // Editar SÃ©rie
+            // Editar Série
             case 1:
                 telaEditarPrograma.setCabecalho(Mensagens.Cabecalhos.EDITAR_SERIES);
                 telaEditarPrograma.editarSerie(App.getBiblioteca());

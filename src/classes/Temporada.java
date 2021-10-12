@@ -32,6 +32,6 @@ public class Temporada {
 	@Override
 	public String toString() {
 		return
-				String.format("Temporada: %d | EpisÃ³dios: %d", this.getNumeroTemporada(), this.getQuantidadeEpisodios());
+				String.format("Temporada: %d | Episódios: %d", this.getNumeroTemporada(), this.getQuantidadeEpisodios());
 	}
 }

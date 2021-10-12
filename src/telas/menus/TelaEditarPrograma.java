@@ -42,7 +42,7 @@ public class TelaEditarPrograma extends Menu{
     private void editarPrograma(TipoPrograma tipoPrograma){
         System.out.println(colorQueryMessage("\n"+Mensagens.Instrucoes.INFORME_NOME));
         this.nome = super.nomeCadastradoInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
-        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "PontuaÃ§Ã£o: ", tipoPrograma);
+        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontuação: ", tipoPrograma);
         this.categoria = escolherCategoria();
     }
 
@@ -51,7 +51,7 @@ public class TelaEditarPrograma extends Menu{
         this.tipoPrograma = TipoPrograma.FILME;
         Print.printProgramas(biblioteca.getProgramas(this.tipoPrograma), this.tipoPrograma);
         this.editarPrograma(TipoPrograma.FILME);
-        this.duracao = super.lerOpcao("DuraÃ§Ã£o: ", 999999999);
+        this.duracao = super.lerOpcao("Duração: ", 999999999);
         this.run(true, true, true, true);
     }
 

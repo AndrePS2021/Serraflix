@@ -37,7 +37,7 @@ public class TelaExibirCategoria extends Menu{
 
         switch (super.opcaoSelecionada){
 
-            // COMÃ‰DIA
+            // COMÉDIA
             case 1:
                 Print.printProgramas(App.getBiblioteca().getProgramas(Categoria.COMEDIA, tipoPrograma), tipoPrograma);
                 this.run(true, true, true, tipoPrograma);

@@ -1,7 +1,7 @@
 package uteis;
 
 public enum Categoria {
-    COMEDIA("ComÃ©dia"),
+    COMEDIA("Comédia"),
     FANTASIA("Fantasia"),
     TERROR("Terror");
 

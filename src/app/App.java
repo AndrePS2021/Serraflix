@@ -17,11 +17,11 @@ public class App {
 
     public static void main(String[] args) {
 
-        // Apenas para Biblioteca n√£o come√ßar vazia. Pode excluir se quiser!
+        // Apenas para Biblioteca n„o comeÁar vazia. Pode excluir se quiser!
         importarBibliotecaPadrao();
 
         TelaInicial telaInicial = new TelaInicial();
-        telaInicial.run(true, true, true, true);
+    	telaInicial.run(true, true, true, true);
     }
 
     public static Biblioteca getBiblioteca(){

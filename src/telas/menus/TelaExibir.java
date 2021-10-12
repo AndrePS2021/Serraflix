@@ -30,7 +30,7 @@ public class TelaExibir extends Menu{
 
         switch (super.opcaoSelecionada){
 
-            // Exibir SÃ©rie
+            // Exibir Série
             case 1:
                 telaExibirCategoria.setCabecalho(Mensagens.Cabecalhos.EXIBIR_SERIES);
                 telaExibirCategoria.run(true, true, true, TipoPrograma.SERIE);

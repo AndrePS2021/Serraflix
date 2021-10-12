@@ -6,5 +6,3 @@ public abstract class LimparConsole {
         System.out.flush();
     }
 }
-
-

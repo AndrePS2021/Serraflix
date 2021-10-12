@@ -40,7 +40,7 @@ public class TelaAdicionarPrograma extends Menu{
 
     public void adicionarPrograma(TipoPrograma tipoPrograma){
         this.nome = super.lerStringInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
-        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontuação: ", tipoPrograma);
+        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontua??o: ", tipoPrograma);
         this.categoria = escolherCategoria();
     }
 
@@ -48,7 +48,7 @@ public class TelaAdicionarPrograma extends Menu{
         super.run(true, false, false, false);
         this.tipoPrograma = TipoPrograma.FILME;
         this.adicionarPrograma(TipoPrograma.FILME);
-        this.duracao = super.lerOpcao("Duração: ", 999999999);
+        this.duracao = super.lerOpcao("Dura??o: ", 999999999);
         this.run(true, true, true, true);
     }
 

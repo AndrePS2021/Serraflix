@@ -3,20 +3,20 @@ package mensagens;
 public abstract class Mensagens{
 
     public static class Classificacao {
-        public static final String CLASSIFICACAO_FILME_INVALIDA = "ClassificaÃ§Ã£o de Filme InvÃ¡lida! 0 a 5.";
-        public static final String CLASSIFICACAO_SERIE_INVALIDA = "ClassificaÃ§Ã£o de SÃ©rie InvÃ¡lida! 0 a 10.";
+        public static final String CLASSIFICACAO_FILME_INVALIDA = "Classificação de Filme Inválida! 0 a 5.";
+        public static final String CLASSIFICACAO_SERIE_INVALIDA = "Classificação de Série Inválida! 0 a 10.";
     }
-    
+     
     public static class MensagensSerie{
         public static final String TEMPORADAS_INEXISTENTES = "Temporadas: nenhuma temporada cadastrada.";
     }
 
     public static class Opcoes{
-        public static final String OPCAO_INVALIDA = "OpÃ§Ã£o InvÃ¡lida!"; 
-        public static final String ESCOLHER_OPCOES = "Escolha uma das opÃ§Ãµes abaixo:"; 
-        public static final String ADICIONAR_SERIE = "Adicionar SÃ©rie";
-        public static final String EDITAR_SERIE = "Editar SÃ©rie";
-        public static final String EXIBIR_SERIE = "Exibir SÃ©rie";
+        public static final String OPCAO_INVALIDA = "Opção Inválida!"; 
+        public static final String ESCOLHER_OPCOES = "Escolha uma das opções abaixo:"; 
+        public static final String ADICIONAR_SERIE = "Adicionar Série";
+        public static final String EDITAR_SERIE = "Editar Série";
+        public static final String EXIBIR_SERIE = "Exibir Série";
         public static final String ADICIONAR_FILME = "Adicionar Filme";
         public static final String EDITAR_FILME = "Editar Filme";
         public static final String EXIBIR_FILME = "Exibir Filme";
@@ -24,33 +24,33 @@ public abstract class Mensagens{
         public static final String EDITAR_PROGRAMAS = "Editar Programas";
         public static final String ADICIONAR_PROGRAMAS = "Adicionar Programas";
         public static final String EXCLUIR_PROGRAMAS = "Excluir Programas";
-        public static final String EXCLUIR_SERIE = "Excluir SÃ©rie";
+        public static final String EXCLUIR_SERIE = "Excluir Série";
         public static final String EXCLUIR_FILME = "Excluir Filme";
-        public static final String CADASTRAR_SERIE_TITULO = "=== Cadastro de SÃ©rie ===";
+        public static final String CADASTRAR_SERIE_TITULO = "=== Cadastro de Série ===";
         public static final String CADASTRAR_FILME_TITULO = "=== Cadastro de Filme ===";
         public static final String SALVAR = "Salvar";
         public static final String SAIR = "Sair";
         public static final String VOLTAR = "Voltar";
         public static final String SIM = "Sim";
-        public static final String NAO = "NÃ£o";
+        public static final String NAO = "Não";
         public static final String TODOS = "Exibir Todos";
-        public static final String ADICIONAR_TEMPORADA = "Adicionar EpisÃ³dios da Temporada";
-        public static final String QTD_EPISODIOS = "Quantidade de EpisÃ³dios: ";
+        public static final String ADICIONAR_TEMPORADA = "Adicionar Episódios da Temporada";
+        public static final String QTD_EPISODIOS = "Quantidade de Episódios: ";
     }
 
     public static class Cabecalhos{
         public static final String SERRAFLIX = "=== SERRAFLIX ===";
         public static final String EXIBIR_PROGRAMAS = "=== EXIBIR PROGRAMAS ===";
         public static final String ADICIONAR_PROGRAMAS = "=== ADICIONANDO PROGRAMAS ===";
-        public static final String EXIBIR_SERIES = "=== EXIBINDO SÃ‰RIES ===";
-        public static final String ADICIONAR_SERIES = "=== ADICIONANDO SÃ‰RIES ===";
+        public static final String EXIBIR_SERIES = "=== EXIBINDO SÉRIES ===";
+        public static final String ADICIONAR_SERIES = "=== ADICIONANDO SÉRIES ===";
         public static final String EXIBIR_FILMES = "=== EXIBINDO FILMES ===";
         public static final String ADICIONAR_FILMES = "=== ADICIONANDO FILMES ===";
         public static final String EDITAR_PROGRAMAS = "=== EDITANDO PROGRAMAS ===";
-        public static final String EDITAR_SERIES = "=== EDITANDO SÃ‰RIES ===";
+        public static final String EDITAR_SERIES = "=== EDITANDO SÉRIES ===";
         public static final String EDITAR_FILMES = "=== EDITANDO FILMES ===";
         public static final String EXCLUIR_PROGRAMAS = "=== EXCLUIR PROGRAMAS ===";
-        public static final String EXCLUIR_SERIES = "=== EXCLUINDO SÃ‰RIES ===";
+        public static final String EXCLUIR_SERIES = "=== EXCLUINDO SÉRIES ===";
         public static final String EXCLUIR_FILMES = "=== EXCLUINDO FILMES ===";
     }
 
@@ -64,23 +64,23 @@ public abstract class Mensagens{
     }
 
     public static class Erros{
-        public static final String INPUT_VAZIO = "Por favor, preencha a informaÃ§Ã£o corretamente.";
-        public static final String PROGRAMA_JA_CADASTRADO = "JÃ¡ existe um programa com esse nome.";
-        public static final String PROGRAMA_NAO_CADASTRADO = "NÃ£o existe um programa com esse nome.";
-        public static final String SERIE_NAO_CADASTRADO = "NÃ£o existe uma sÃ©rie com esse nome.";
-        public static final String SERIE_JA_CADASTRADO = "JÃ¡ existe uma sÃ©rie com esse nome.";
-        public static final String FILME_NAO_CADASTRADO = "NÃ£o existe um filme com esse nome.";
-        public static final String FILME_JA_CADASTRADO = "JÃ¡ existe um filme com esse nome.";
-        public static final String DURACAO_INVALIDA = "DuraÃ§Ã£o InvÃ¡lida! NÃºmero maior que 0.";
+        public static final String INPUT_VAZIO = "Por favor, preencha a informação corretamente.";
+        public static final String PROGRAMA_JA_CADASTRADO = "Já existe um programa com esse nome.";
+        public static final String PROGRAMA_NAO_CADASTRADO = "Não existe um programa com esse nome.";
+        public static final String SERIE_NAO_CADASTRADO = "Não existe uma série com esse nome.";
+        public static final String SERIE_JA_CADASTRADO = "Já existe uma série com esse nome.";
+        public static final String FILME_NAO_CADASTRADO = "Não existe um filme com esse nome.";
+        public static final String FILME_JA_CADASTRADO = "Já existe um filme com esse nome.";
+        public static final String DURACAO_INVALIDA = "Duração Inválida! Número maior que 0.";
     }
 
     public static class Avisos {
-        public static final String LISTA_VAZIA = "NÃ£o encontrei nada. :(";
-        public static final String BIBLIOTECA_VAZIA = "NÃ£o encontrei nenhum programa na sua biblioteca. :(";
+        public static final String LISTA_VAZIA = "Não encontrei nada. :(";
+        public static final String BIBLIOTECA_VAZIA = "Não encontrei nenhum programa na sua biblioteca. :(";
         public static final String SALVO_SUCESSO = "Salvo com Sucesso! Curta seu novo Programa! :)";
-        public static final String EXCLUIDO_SUCESSO = "Seu Programa foi excluÃ­do com sucesso! :)";
-        public static final String SALVO_FAIL = "NÃ£o consegui salvar seu Programa! :(";
-        public static final String EXCLUIR_FAIL = "NÃ£o consegui excluir seu Programa! :(";
+        public static final String EXCLUIDO_SUCESSO = "Seu Programa foi excluído com sucesso! :)";
+        public static final String SALVO_FAIL = "Não consegui salvar seu Programa! :(";
+        public static final String EXCLUIR_FAIL = "Não consegui excluir seu Programa! :(";
     }
 
     public static String colorErrorMessage(String message){
@@ -174,5 +174,3 @@ public abstract class Mensagens{
         public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
     }
 }
-
-

@@ -44,7 +44,7 @@ public class TelaExcluir extends Menu{
 
         switch (super.opcaoSelecionada){
 
-            // Excluir SÃ©rie
+            // Excluir Série
             case 1:
 
                 if (listaVazia(App.getBiblioteca().getProgramas(TipoPrograma.SERIE))){

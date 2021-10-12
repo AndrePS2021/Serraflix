@@ -50,7 +50,7 @@ public class InputData extends Exception{
 
             } catch (NumberFormatException | NoSuchElementException e) {
                 this.opcaoSelecionada = null;
-                System.out.println(colorErrorMessage("Por favor, digite um nÃºmero vÃ¡lido!"));
+                System.out.println(colorErrorMessage("Por favor, digite um número válido!"));
 
             } catch (InputException.OpcaoException e) {
                 this.opcaoSelecionada = null;

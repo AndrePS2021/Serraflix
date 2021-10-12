@@ -30,7 +30,7 @@ public class TelaAdicionar extends Menu{
 
         switch (super.opcaoSelecionada){
 
-            // Adicionar SÃ©rie
+            // Adicionar Série
             case 1:
                 telaAdicionarPrograma.setCabecalho(Mensagens.Cabecalhos.ADICIONAR_SERIES);
                 telaAdicionarPrograma.adicionarSerie(App.getBiblioteca());

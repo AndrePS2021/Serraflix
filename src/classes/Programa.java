@@ -60,7 +60,7 @@ public abstract class Programa implements Classificar {
 
 		return
 				colorGoodMessage("Nome: " + this.nome) +
-				"\nPontuaÃ§Ã£o: " + this.pontuacao +
+				"\nPontuação: " + this.pontuacao +
 				"\nCategoria: " + this.categoria.toString();
 	}
 }

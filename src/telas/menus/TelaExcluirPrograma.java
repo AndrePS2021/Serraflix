@@ -15,7 +15,6 @@ import static mensagens.Mensagens.colorGoodMessage;
 public class TelaExcluirPrograma extends Menu{
 
     private Menu menuAnterior;
-    private TipoPrograma tipoPrograma;
     private Programa programa;
     private String nome;
 
