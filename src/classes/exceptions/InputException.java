@@ -18,7 +18,7 @@ public abstract class InputException extends Exception {
         }
 
         public static void inputVazioNulo(String input) throws InputVazioException{
-            if(input.isEmpty() || input.isBlank()){
+            if(input.isEmpty() ||  input.trim().length() <= 0){
                 throw new InputVazioException(colorErrorMessage(Mensagens.Erros.INPUT_VAZIO));
             }
         }
@@ -33,8 +33,8 @@ public abstract class InputException extends Exception {
             if (biblioteca.getPrograma(nome) != null) {
                 if (biblioteca.getPrograma(nome).getTipoPrograma() == tipoPrograma) {
                     switch (tipoPrograma) {
-                        case SERIE -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_JA_CADASTRADO));
-                        case FILME -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_JA_CADASTRADO));
+                        case SERIE : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_JA_CADASTRADO));
+                        case FILME : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_JA_CADASTRADO));
                     }
                 }
             }
@@ -43,15 +43,15 @@ public abstract class InputException extends Exception {
         public static void programaNaoCadastrado(String nome, Biblioteca biblioteca, TipoPrograma tipoPrograma) throws BibliotecaException {
             if (biblioteca.getPrograma(nome) == null) {
                 switch (tipoPrograma) {
-                    case SERIE -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_NAO_CADASTRADO));
-                    case FILME -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_NAO_CADASTRADO));
+                    case SERIE : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_NAO_CADASTRADO));
+                    case FILME : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_NAO_CADASTRADO));
                 }
             }
 
             if (biblioteca.getPrograma(nome, tipoPrograma) == null) {
                 switch (tipoPrograma) {
-                    case SERIE -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_NAO_CADASTRADO));
-                    case FILME -> throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_NAO_CADASTRADO));
+                    case SERIE : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.SERIE_NAO_CADASTRADO));
+                    case FILME : throw new BibliotecaException(colorErrorMessage(Mensagens.Erros.FILME_NAO_CADASTRADO));
                 }
             }
         }

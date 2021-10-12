@@ -14,8 +14,12 @@ public abstract class Print {
     public static void printProgramas(List<Programa> programas, TipoPrograma tipoPrograma){
 
         switch (tipoPrograma){
-            case SERIE -> System.out.println("\n" + colorTitleMessage(Mensagens.Cabecalhos.EXIBIR_SERIES));
-            case FILME -> System.out.println("\n" + colorTitleMessage(Mensagens.Cabecalhos.EXIBIR_FILMES));
+            case SERIE : 
+            	System.out.println("\n" + colorTitleMessage(Mensagens.Cabecalhos.EXIBIR_SERIES));
+            	break;
+            case FILME : 
+            	System.out.println("\n" + colorTitleMessage(Mensagens.Cabecalhos.EXIBIR_FILMES));
+            	break;
         }
 
         if (programas == null || programas.size() == 0){
