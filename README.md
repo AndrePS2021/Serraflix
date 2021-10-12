@@ -19,7 +19,7 @@ Mesmo com diversas opções excelentes, modernas e inteligentes disponíveis atu
 
 + Para que o Console não apresente problemas com caracteres especiais (acentos, cedilha etc.), configure a codificação de arquivos para UTF-8, nas propriedades do projeto, clicando com botão direito na pasta do projeto e depois em **propriedades** conforme imagem abaixo:
 
- [<img src="https://github.com/nathan-guimaraes/Serraflix/blob/main/UTF-8.PNG">](https://github.com/nathan-guimaraes/Serraflix/blob/main/UTF-8.PNG)
+ [<img src="https://github.com/nathan-guimaraes/Serraflix/blob/main/UTF-8.jpg">](https://github.com/nathan-guimaraes/Serraflix/blob/main/UTF-8.jpg)
 
 + Para que o Console não apresente problemas e exiba corretamente as cores dos textos, instale a extensão **ANSI Escape in Console**, clicando em *Help > Eclipse Marketplace > ANSI Escape in Console > Install > Finish* conforme imagem abaixo:
 
