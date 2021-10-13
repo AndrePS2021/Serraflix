@@ -84,7 +84,7 @@ public class TelaEditarPrograma extends Tela {
 
     private Categoria escolherCategoria(){
         System.out.println("\n" + Categoria.getCategorias());
-        Integer categoria = super.lerOpcao("Categoria: ", Categoria.values().length);
+        Integer categoria = super.lerOpcao(Mensagens.Opcoes.CATEGORIA, Categoria.values().length);
 
         return Categoria.values()[categoria-1];
     }
@@ -139,7 +139,7 @@ public class TelaEditarPrograma extends Tela {
 
     public void editarPontuacao(){
         System.out.println(colorQueryMessage("\n" + Mensagens.Instrucoes.NOVA_PONTUACAO));
-        this.novaPontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontuação: ", tipoPrograma);
+        this.novaPontuacao = super.lerIntegerInput(App.getBiblioteca(), Mensagens.Opcoes.PONTUACAO, tipoPrograma);
         salvarPontuacao(App.getBiblioteca());
     }
 
@@ -165,7 +165,7 @@ public class TelaEditarPrograma extends Tela {
 
     public void editarDuracao(){
         System.out.println(colorQueryMessage("\n" + Mensagens.Instrucoes.NOVA_DURACAO));
-        this.novadDuracao = super.lerOpcao("Duração: ", 999999999);
+        this.novadDuracao = super.lerOpcao(Mensagens.Opcoes.DURACAO, 999999999);
         salvarDuracao(App.getBiblioteca());
     }
 

@@ -2,6 +2,7 @@ package classes;
 
 import classes.exceptions.ClassificacaoForaDoRangeException;
 import interfaces.Classificar;
+import mensagens.Mensagens;
 import uteis.Categoria;
 import uteis.TipoPrograma;
 
@@ -61,7 +62,7 @@ public abstract class Programa implements Classificar {
 
 		return
 				colorQueryMessage("Nome: " + this.nome) +
-				"\nPontuação: " + this.pontuacao +
-				"\nCategoria: " + this.categoria.toString();
+				"\n" + Mensagens.Opcoes.PONTUACAO + this.pontuacao +
+				"\n" + Mensagens.Opcoes.CATEGORIA + this.categoria.toString();
 	}
 }

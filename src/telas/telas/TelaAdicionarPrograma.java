@@ -39,14 +39,14 @@ public class TelaAdicionarPrograma extends Tela {
     public void adicionarPrograma(TipoPrograma tipoPrograma){
         super.run(true, false, false, false);
         this.nome = super.lerStringInput(App.getBiblioteca(), "Nome: ", tipoPrograma);
-        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), "Pontuação: ", tipoPrograma);
+        this.pontuacao = super.lerIntegerInput(App.getBiblioteca(), Mensagens.Opcoes.PONTUACAO, tipoPrograma);
         this.categoria = escolherCategoria();
     }
 
     public void adicionarFilme(Biblioteca biblioteca){
         this.tipoPrograma = TipoPrograma.FILME;
         this.adicionarPrograma(TipoPrograma.FILME);
-        this.duracao = super.lerOpcao("Duração: ", 999999999);
+        this.duracao = super.lerOpcao(Mensagens.Opcoes.DURACAO, 999999999);
         this.run(false, true, true, true);
     }
 
@@ -59,7 +59,7 @@ public class TelaAdicionarPrograma extends Tela {
 
     private Categoria escolherCategoria(){
         System.out.println("\n" + Categoria.getCategorias());
-        Integer categoria = super.lerOpcao("Categoria: ", Categoria.values().length);
+        Integer categoria = super.lerOpcao(Mensagens.Opcoes.CATEGORIA, Categoria.values().length);
 
         return Categoria.values()[categoria-1];
     }

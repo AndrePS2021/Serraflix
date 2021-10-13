@@ -16,9 +16,6 @@ public class App {
     private final static Biblioteca biblioteca = new Biblioteca();
 
     public static void main(String[] args) {
-
-        System.out.println(Categoria.COMEDIA);
-
         // Apenas para Biblioteca não começar vazia. Pode excluir se quiser!
         importarBibliotecaPadrao();
 

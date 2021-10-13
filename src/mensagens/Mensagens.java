@@ -37,6 +37,9 @@ public abstract class Mensagens{
         public static final String EDITAR_CATEGORIA = "Editar Categoria";
         public static final String EDITAR_TEMPORADAS = "Editar Temporadas";
         public static final String EDITAR_DURACAO = "Editar Duração";
+        public static final String PONTUACAO = "Pontuação: ";
+        public static final String CATEGORIA = "Categoria: ";
+        public static final String DURACAO = "Duração: ";
     }
     public static class Cabecalhos{
         public static final String SERRAFLIX = "=== SERRAFLIX ===";

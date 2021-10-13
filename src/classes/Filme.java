@@ -1,6 +1,7 @@
 package classes;
 
 import classes.exceptions.ClassificacaoForaDoRangeException;
+import mensagens.Mensagens;
 import uteis.Categoria;
 import uteis.TipoPrograma;
 
@@ -35,6 +36,6 @@ public class Filme extends Programa {
 	public String toString() {
 		return
 				super.toString() + "\n" +
-				"Duração: " + this.formatTime() + "\n";
+				Mensagens.Opcoes.DURACAO + this.formatTime() + "\n";
 	}
 }
